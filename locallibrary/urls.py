@@ -21,15 +21,10 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-re_path(r'^media/(?P<path>.*)$', serve, {'document_root':
-settings.MEDIA_ROOT}), #serve media files when deployed
-re_path(r'^static/(?P<path>.*)$', serve, {'document_root':
-settings.STATIC_ROOT}), #serve static files when deployed
-continued next page.
-import os
-MEDIA_URL = 'media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root':
+    settings.MEDIA_ROOT}), #serve media files when deployed
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root':
+    settings.STATIC_ROOT}), #serve static files when deployed
 
     path('', include('catalog.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
